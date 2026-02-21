@@ -24,7 +24,7 @@ export const LanguageSwitcher = () => {
     i18n.changeLanguage(lang);
     setSelectedLocale(lang);
     localStorage.setItem('i18nextLng', lang);
-    window.location.reload();
+    // window.location.reload();
   };
 
   useEffect(() => {

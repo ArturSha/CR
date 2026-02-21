@@ -12,13 +12,16 @@ import { SocialBtn } from './socialBtn.styled';
 import { LanguageSwitcher } from '@/feature/languageSwitcher';
 import { FooterWrapper } from './footer.styled';
 import { Container } from '@/shared/ui/container';
+import type { languageType } from '@/shared/libs';
 import { useTranslation } from '@/shared/libs';
-import man from '@/shared/assets/images/man.png';
+// import man from '@/shared/assets/images/man.png';
+import { mascots } from './mascots';
 
 export const Footer = () => {
-  const { t } = useTranslation('footer');
+  const { t, i18n } = useTranslation('footer');
+  const lang = i18n.language as languageType;
   return (
-    <FooterWrapper>
+    <FooterWrapper $lang={lang}>
       <Container maxWidth="xxl">
         <Box
           display="flex"
@@ -28,7 +31,7 @@ export const Footer = () => {
           marginBottom={4}
         >
           <Box display={{ xs: 'none', xl: 'block' }}>
-            <img src={man} alt="Casino Royale" width={240} />
+            <img src={mascots[lang] ?? mascots['en']} alt="Casino Royale" width={240} />
           </Box>
           <DownloadCard />
           <Box
