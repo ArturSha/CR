@@ -1,7 +1,3 @@
-import InstagramIcon from '@/shared/assets/icons/instagram.png';
-import TelegramIcon from '@/shared/assets/icons/telegram.png';
-import XIcon from '@/shared/assets/icons/x.png';
-import EmailIcon from '@/shared/assets/icons/mail.png';
 import license from '@/shared/assets/images/license.png';
 import Age18PlusIcon from '@/shared/assets/icons/Age18PlusIcon.svg';
 import { DownloadCard } from '@/shared/ui/downloadCard';
@@ -15,6 +11,7 @@ import { Container } from '@/shared/ui/container';
 import type { languageType } from '@/shared/libs';
 import { useTranslation } from '@/shared/libs';
 import { mascots } from './mascots';
+import { socialLinks } from './socialLinks';
 
 export const Footer = () => {
   const { t, i18n } = useTranslation('footer');
@@ -58,18 +55,16 @@ export const Footer = () => {
               >
                 <Typography>{t('socialMedia')}</Typography>
                 <Box display="flex" gap={0.5}>
-                  <SocialBtn target="_blank" to="https://www.instagram.com/" aria-label="Instagram">
-                    <img src={InstagramIcon} alt="Instagram" />
-                  </SocialBtn>
-                  <SocialBtn target="_blank" to="https://t.me/" aria-label="Telegram">
-                    <img src={TelegramIcon} alt="Telegram" />
-                  </SocialBtn>
-                  <SocialBtn target="_blank" to="https://x.com/" aria-label="X (Twitter)">
-                    <img src={XIcon} alt="X" />
-                  </SocialBtn>
-                  <SocialBtn to="mailto:email@example.com" aria-label="Email">
-                    <img src={EmailIcon} alt="Email" />
-                  </SocialBtn>
+                  {socialLinks.map((link) => (
+                    <SocialBtn
+                      key={link.label}
+                      target="_blank"
+                      to={link.href}
+                      aria-label={link.label}
+                    >
+                      <img src={link.icon} alt={link.label} />
+                    </SocialBtn>
+                  ))}
                 </Box>
               </Box>
             </Box>

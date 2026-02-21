@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './shared/libs/MUI';
+import { theme } from './shared/libs';
 import { router } from './app/providers/router/config';
 import { createGlobalStyle } from 'styled-components';
 
