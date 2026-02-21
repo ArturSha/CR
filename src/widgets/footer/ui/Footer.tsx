@@ -1,0 +1,119 @@
+import InstagramIcon from '@/shared/assets/icons/instagram.png';
+import TelegramIcon from '@/shared/assets/icons/telegram.png';
+import XIcon from '@/shared/assets/icons/x.png';
+import EmailIcon from '@/shared/assets/icons/mail.png';
+import license from '@/shared/assets/images/license.png';
+import Age18PlusIcon from '@/shared/assets/icons/Age18PlusIcon.svg';
+import { DownloadCard } from '@/shared/ui/downloadCard';
+import { Divider } from '@/shared/ui/divider';
+import { Box } from '@/shared/ui/box';
+import { Typography } from '@/shared/ui/typography';
+import { SocialBtn } from './socialBtn.styled';
+import { LanguageSwitcher } from '@/feature/languageSwitcher';
+import { FooterWrapper } from './footer.styled';
+import { Container } from '@/shared/ui/container';
+import { useTranslation } from '@/shared/libs';
+import man from '@/shared/assets/images/man.png';
+
+export const Footer = () => {
+  const { t } = useTranslation('footer');
+  return (
+    <FooterWrapper>
+      <Container maxWidth="xxl">
+        <Box
+          display="flex"
+          flexDirection={{ xs: 'column', xl: 'row' }}
+          alignItems="center"
+          gap={6.5}
+          marginBottom={4}
+        >
+          <Box display={{ xs: 'none', xl: 'block' }}>
+            <img src={man} alt="Casino Royale" width={240} />
+          </Box>
+          <DownloadCard />
+          <Box
+            display="flex"
+            alignItems="center"
+            flexDirection={{ xs: 'column', xl: 'row-reverse' }}
+            gap={'52px'}
+            maxWidth={{ xs: 600, xl: '100%' }}
+            width="100%"
+          >
+            <Box
+              display="flex"
+              flexDirection="column"
+              gap={7.5}
+              width="100%"
+              alignItems={{ xs: 'center', xl: 'flex-end' }}
+            >
+              <LanguageSwitcher />
+
+              <Box
+                textAlign={{ xs: 'center', xl: 'right' }}
+                gap={1.5}
+                flexDirection="column"
+                display="flex"
+              >
+                <Typography>{t('socialMedia')}</Typography>
+                <Box display="flex" gap={0.5}>
+                  <SocialBtn target="_blank" to="https://www.instagram.com/" aria-label="Instagram">
+                    <img src={InstagramIcon} alt="Instagram" />
+                  </SocialBtn>
+                  <SocialBtn target="_blank" to="https://t.me/" aria-label="Telegram">
+                    <img src={TelegramIcon} alt="Telegram" />
+                  </SocialBtn>
+                  <SocialBtn target="_blank" to="https://x.com/" aria-label="X (Twitter)">
+                    <img src={XIcon} alt="X" />
+                  </SocialBtn>
+                  <SocialBtn to="mailto:email@example.com" aria-label="Email">
+                    <img src={EmailIcon} alt="Email" />
+                  </SocialBtn>
+                </Box>
+              </Box>
+            </Box>
+            <Box
+              maxWidth={{ xs: 286, md: 600, xl: 360 }}
+              width="100%"
+              display="flex"
+              gap={3}
+              flexDirection={{ xs: 'column', md: 'row', xl: 'column' }}
+              alignItems="center"
+              justifyContent={{ xs: 'center', md: 'space-between' }}
+            >
+              <Box
+                display="flex"
+                flexDirection={{ xs: 'column', xl: 'row' }}
+                alignItems="center"
+                gap={1.5}
+                width="100%"
+                maxWidth={286}
+              >
+                <Age18PlusIcon
+                  style={{
+                    color: 'white',
+                    opacity: 0.4,
+                  }}
+                  width={58}
+                  height={58}
+                />
+                <Typography>{t('age18Plus')}</Typography>
+              </Box>
+              <Box
+                display="flex"
+                flexDirection={{ xs: 'column', xl: 'row' }}
+                alignItems="center"
+                gap={1.5}
+                width="100%"
+                maxWidth={286}
+              >
+                <img src={license} alt="license" width={58} height={58} />
+                <Typography textAlign={{ xs: 'center', xl: 'left' }}>{t('license')}</Typography>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Divider variant="middle" flexItem />
+      </Container>
+    </FooterWrapper>
+  );
+};

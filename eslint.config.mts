@@ -20,6 +20,20 @@ export default defineConfig([
     rules: {
       'react/react-in-jsx-scope': 'off',
       'no-console': 'warn',
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: false, // можно использовать type в аннотациях
+        },
+      ],
+      'react/jsx-no-literals': [
+        'error',
+        {
+          noStrings: true,
+          ignoreProps: true,
+        },
+      ],
     },
   },
 ]);
