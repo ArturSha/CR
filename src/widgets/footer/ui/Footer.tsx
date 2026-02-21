@@ -14,7 +14,6 @@ import { FooterWrapper } from './footer.styled';
 import { Container } from '@/shared/ui/container';
 import type { languageType } from '@/shared/libs';
 import { useTranslation } from '@/shared/libs';
-// import man from '@/shared/assets/images/man.png';
 import { mascots } from './mascots';
 
 export const Footer = () => {
