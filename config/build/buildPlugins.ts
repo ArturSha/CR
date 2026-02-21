@@ -5,10 +5,11 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
-import webpack, { Configuration, DefinePlugin } from 'webpack';
+import type { Configuration} from 'webpack';
+import webpack, { DefinePlugin } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-import { BuildOptions } from './types';
+import type { BuildOptions } from './types';
 
 
 
@@ -32,7 +33,6 @@ export function buildPlugins({
 
   if (isDev) {
     plugins.push(new webpack.ProgressPlugin());
-    /** Выносит проверку типов в отдельный процесс: не нагружая сборку */
     plugins.push(new ForkTsCheckerWebpackPlugin());
     plugins.push(new ReactRefreshWebpackPlugin());
     plugins.push(new CircularDependencyPlugin({
