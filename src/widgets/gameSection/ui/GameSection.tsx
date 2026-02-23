@@ -1,11 +1,9 @@
-import { useState } from 'react';
-
+import { useGameContext, useTranslation } from '@/shared/libs';
 import brand from '@/shared/assets/images/brand.png';
 import slot from '@/shared/assets/images/slot.png';
 import bg from '@/shared/assets/images/background.png';
 import { Button } from '@/shared/ui/button';
 import CloseIcon from '@mui/icons-material/Close';
-import { useTranslation } from '@/shared/libs';
 import { GameIframe } from './gameIframe.styled';
 import { Box } from '@/shared/ui/box';
 import { Brand, SlotImg } from './images.styled';
@@ -14,14 +12,14 @@ const GAME_URL =
   'https://gateway.eva-digital-playground.com/v0/casino/games/launch?gameId=n2-novomatic-book-of-ra-deluxe&channel=desktop&partnerKey=0wl&lobbyUrl=https://chinchincasino.com&mode=demo&language=en';
 
 export const GameSection = () => {
-  const [gameOpen, setGameOpen] = useState(false);
+  const { isGameOpen, setIsGameOpen } = useGameContext();
   const { t } = useTranslation();
 
-  if (gameOpen) {
+  if (isGameOpen) {
     return (
       <Box position="relative" width="100%" height="100svh">
         <Button
-          onClick={() => setGameOpen(false)}
+          onClick={() => setIsGameOpen(false)}
           aria-label="Close game"
           sx={{
             position: 'absolute',
@@ -70,7 +68,7 @@ export const GameSection = () => {
       >
         <Brand src={brand} alt="Casino Royale" />
         <SlotImg src={slot} alt="Slots 777" />
-        <Button variant="cta" onClick={() => setGameOpen(true)}>
+        <Button variant="cta" onClick={() => setIsGameOpen(true)}>
           {t('openTheGame')}
         </Button>
       </Box>

@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './shared/libs';
 import { router } from './app/providers/router/config';
 import { createGlobalStyle } from 'styled-components';
+import { GameProvider } from '@/shared/libs';
 
 const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
@@ -24,6 +25,8 @@ const container = createRoot(root);
 container.render(
   <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <RouterProvider router={router} />
+    <GameProvider>
+      <RouterProvider router={router} />
+    </GameProvider>
   </ThemeProvider>,
 );
