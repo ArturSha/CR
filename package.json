@@ -1,7 +1,7 @@
 {
   "homepage": "https://artursha.github.io/CR",
   "name": "Casino Royale",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "online casino",
   "scripts": {
     "start": "webpack serve --env mode=development",

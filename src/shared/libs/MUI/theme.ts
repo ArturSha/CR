@@ -27,7 +27,7 @@ export const theme = createTheme({
             gap: '10px',
             background: 'linear-gradient(84.38deg, #FF8D6B 7.59%, #FFBA47 96.71%)',
             borderRadius: '12px',
-            padding: '13px 36px',
+            padding: '13px 16px',
             color: '#fff',
             fontSize: '16px',
             fontWeight: 700,
