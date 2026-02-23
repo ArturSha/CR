@@ -17,8 +17,8 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json',
-      queryStringParams: { v: '1.0.0' },
+      loadPath: 'locales/{{lng}}/{{ns}}.json',
+      queryStringParams: { v: '1.0.1' },
     },
   });
 
