@@ -28,6 +28,9 @@ export function buildPlugins({
     }),
     new DefinePlugin({
       __ENV__: JSON.stringify(mode),
+      __BASE_PATH__: JSON.stringify(
+    mode === 'production' ? '/CR/' : '/'
+  ),
     }),
   ];
 

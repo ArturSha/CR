@@ -1,10 +1,10 @@
-import webpack from "webpack";
+import type webpack from "webpack";
 
 import {buildDevServer} from "./buildDevServer";
 import {buildLoaders} from "./buildLoaders";
 import {buildPlugins} from "./buildPlugins";
 import {buildResolvers} from "./buildResolvers";
-import { BuildOptions } from "./types";
+import type { BuildOptions } from "./types";
 
 export function buildWebpack(options: BuildOptions): webpack.Configuration {
     const {mode, paths} = options
@@ -21,7 +21,8 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
         output: {
             clean: true,
             filename: '[name].[contenthash].js',
-            path: paths.output
+            path: paths.output,
+            publicPath: mode === 'production' ? '/CR/' : '/',
         },
         plugins: buildPlugins(options),
         resolve: buildResolvers(options),
